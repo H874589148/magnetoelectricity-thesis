@@ -1,0 +1,22 @@
+k=9e9;
+q=1e-9;
+r0=0.1;
+u0=k*q/r0;
+[X,Y,Z]=sphere(20);
+r0=0.1;
+x=r0*X(:)';
+y=r0*Y(:)';
+z=r0*Z(:)';
+x=[x;zeros(size(x))];
+y=[y;zeros(size(y))];
+z=[z;zeros(size(z))];
+plot3(x,y,z);hold on;
+u=linspace(1,3,5)*u0;
+[X,Y,Z]=sphere;
+r=k*q./u;
+Z(X<0&Y<0)=nan;
+for i=1:5;
+    surf(r(i)*X,r(i)*Y,r(i)*Z);
+end
+shading interp;
+axis square;

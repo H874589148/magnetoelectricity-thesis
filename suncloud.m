@@ -1,0 +1,22 @@
+clear;
+figure(1);
+R=0.35;y=-1:0.04:1;x=-1:0.04:1;theta=0:pi/20:2*pi;
+[X,Y,Theta]=meshgrid(x,y,theta);
+r=sqrt(X.^2+(Y-R*sin(Theta)).^2+(R.*cos(Theta)).^2);
+r3=r.^3;
+dBx=-R.*(R-Y.*sin(Theta))./r3;
+dBy=-X.*R.*sin(Theta)./r3;
+Bx=pi/40*trapz(dBx,3);By=pi/40*trapz(dBy,3);
+[BSX,BSY]=meshgrid(0,[0:0.05:0.2]);
+h1=streamline(X(:,:,1),2*Y(:,:,1),Bx,2*By,BSX,2*BSY,[0.1,1000]);
+h2=streamline(X(:,:,1),0.5*Y(:,:,1),Bx,0.5*By,BSX,0.5*BSY,[0.1,1000]);
+%h2=copyobj(h1,gca);
+rotate(h2,[1,0,0],180,[0,0,0]);
+h3=copyobj(allchild(gca),gca);
+rotate(h3,[0,1,0],180,[0,0,0]);
+for kk=1:4
+    [BSX,BSY]=meshgrid(0,0.2+kk*0.02);
+    streamline(X(:,:,1),2*Y(:,:,1),Bx,2*By,BSX,2*BSY,[0.02/(kk+1),4500]);
+    streamline(X(:,:,1),-0.5*Y(:,:,1),Bx,-0.5*By,BSX,-0.5*BSY,[0.02/(kk+1),4500]);
+end
+view(90,-90);

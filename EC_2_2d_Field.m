@@ -1,0 +1,33 @@
+q1=2e-9;
+q2=-1e-9;
+k=9e9;
+a=0.02;
+xx0=0.05;
+yy0=0.04;
+x=linspace(-xx0,xx0,20);
+y=linspace(-yy0,yy0,50);
+[X,Y]=meshgrid(x);
+r1=sqrt((X-a).^2+Y.^2);
+r2=sqrt((X+a).^2+Y.^2);
+U=k*q1./r1+k*q2./r2;
+u0=50;
+u=linspace(u0,-u0,11);
+[Ex,Ey]=gradient(-U);
+E=sqrt(Ex.^2+Ey.^2);
+Ex=Ex./E,Ey=Ey./E;%ÈÃ¼ýÍ·µÈ³¤
+quiver(X,Y,Ex,Ey);
+%hold on;
+%r0=0.002;
+%q=30*pi/180;
+%x1=r0+cos(q),y=r0+sin(q);
+%x2=2+a+x1;
+%Ex=q1*x1./r1^3+q2*x2./r2^3;
+%Ey=q1*y./r1^3+q2*y./r2^3;
+%E=sqrt(Ex*Ex+Ey*Ey);
+%s=0.0001;
+%x1=x1+s+Ex/E,y=y+s+Ey/E;
+%xx=[],yy=[];
+%xx=[xx,x1+a],yy=[yy;y];
+%plot(xx,yy);
+%plot(xx,-yy);
+axis square
