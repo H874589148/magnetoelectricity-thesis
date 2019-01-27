@@ -34,7 +34,7 @@ axis square
 
 运行程序得到图像（图1）如下：
 
- 
+ ![image](https://github.com/H874589148/magnetoelectricity-thesis/blob/master/EC_1_2d_Field.jpg)
 （图1）
 
 2.2 单点电荷平面等势线
@@ -59,7 +59,7 @@ axis square;  %将画面比例改为1:1
 
 运行程序得到图像（图2）如下：
 
- 
+ ![image](https://github.com/H874589148/magnetoelectricity-thesis/blob/master/EC_1_2d_Position.jpg)
 （图2）
 
 可以看出在距离中心点电荷近的地方等势线密集，在距离中心点电荷远的地方等势线稀疏，证明在距离中心点电荷近的地方电势变化快，在距离中心点电荷远的地方电势降低缓慢，这与我们的常识相符。
@@ -86,7 +86,7 @@ shading interp;
 
 运行程序得到图像（图3）如下：
 
- 
+ ![image](https://github.com/H874589148/magnetoelectricity-thesis/blob/master/EC_1_3d_Field.jpg)
 （图3）
 
 2.4 单个点电荷立体等势面
@@ -116,7 +116,7 @@ shading interp;
 
 运行程序得到图像（图4）如下：
 
- 
+ ![image](https://github.com/H874589148/magnetoelectricity-thesis/blob/master/EC_1_3d_Position.jpg)
 （图4）
 
 在这里有一些绘图经验可以分享：在绘制如上图等势面时必须先将电场线画出，再使用hold on命令保留图形之后再绘制等势面，否则在绘制等势面时最外层等势面之内的等势面都会由于没有颜色差异大的参照物而无法显现，只能看到一个被挖空了1/4的球壳，最初一直找不到内层的等势面其实并不是代码的问题。
@@ -152,7 +152,7 @@ quiver(X,Y,Ex,Ey);
 
 运行程序得到图像（图5）如下：
 
- 
+ ![image](https://github.com/H874589148/magnetoelectricity-thesis/blob/master/EC_2_2d_Field.jpg)
 （图5）
 
 在上面的程序中有一个很重要的命令：Ex=Ex./E,Ey=Ey./E;它的作用是让平面内所有向量均缩小或放大变为单位向量，他们的模长相等，即箭头等长，否则会出现在距离两个点电荷中心近的地方电场强矢量模长长而离点电荷远的地方箭头长度几乎看不到的情况。
@@ -160,10 +160,10 @@ quiver(X,Y,Ex,Ey);
 2.6 一对具有等大异号电荷的点电荷在平面上的等势线
 等势线原理同上，根据式（6）使用等高线命令coutour易绘制得到，本文中给出图形,代码不加以详细解释，等大异号点电荷在平面上的等势线如图6所示：
 
- 
+ ![image](https://github.com/H874589148/magnetoelectricity-thesis/blob/master/EC_2_2d_Position.jpg)
 （图6）
 同理，以U为z轴，在空间内可以绘制出电势变化曲面（图7），可以看出下图中的等高线即为上图中的等势线。
- 
+ ![image](https://github.com/H874589148/magnetoelectricity-thesis/blob/master/EC_2_3d_Position.jpg)
 （图7）
 
 三、对磁场中常见模型的编程可视化
